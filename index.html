@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steve Lewey — Ancient Intelligence for Modern Life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-soft: #2C3E5C;
+    --gold: #C9A84C;
+    --gold-soft: #DCC077;
+    --cream: #FAF6EF;
+    --parchment: #F0E9D8;
+    --ink: #24304A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'EB Garamond', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 19px;
+  }
+
+  h1, h2, h3, .eyebrow, nav a, .btn, .site-footer, .marker {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  a { color: inherit; }
+
+  img { max-width: 100%; display: block; }
+
+  /* -------- Skip link / accessibility -------- */
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--navy);
+    color: var(--cream);
+    padding: 0.75rem 1.25rem;
+    z-index: 100;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  /* -------- Header -------- */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(27,42,74,0.12);
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--navy);
+    font-size: 1.05rem;
+    text-decoration: none;
+  }
+
+  nav.primary-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.75rem;
+  }
+
+  nav.primary-nav a {
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy-soft);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  nav.primary-nav a:hover { border-color: var(--gold); color: var(--navy); }
+
+  @media (max-width: 640px) {
+    nav.primary-nav ul { gap: 1rem; }
+    nav.primary-nav a { font-size: 0.72rem; }
+  }
+
+  /* -------- Hero -------- */
+  .hero {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 5.5rem 1.5rem 3.5rem;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 1.3rem;
+  }
+
+  .hero p.lede {
+    font-size: 1.2rem;
+    color: var(--navy-soft);
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+
+  .hero p.lede-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: var(--navy-soft);
+    opacity: 0.8;
+    max-width: 560px;
+    margin: 0 auto 1.6rem;
+  }
+
+  .hero-divider {
+    width: 46px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto 2.2rem;
+  }
+
+  /* -------- About -------- */
+  section.about {
+    background: var(--parchment);
+    padding: 3.5rem 1.5rem;
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (max-width: 700px) {
+    .about-inner { grid-template-columns: 1fr; }
+    .about-portrait-placeholder { width: 160px; margin: 0 auto; }
+  }
+
+  .about-portrait-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: linear-gradient(160deg, var(--gold-soft), var(--navy-soft) 140%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cream);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .about-text .eyebrow {
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .about-text p {
+    color: var(--navy-soft);
+    margin-bottom: 1rem;
+    font-size: 1.02rem;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+
+  /* -------- Pathways (I-V) -------- */
+  .pathways {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+
+  @media (max-width: 900px) {
+    .pathways { grid-template-columns: 1fr; max-width: 560px; }
+  }
+
+  .pathway-card {
+    background: #fff;
+    border: 1px solid rgba(27,42,74,0.10);
+    border-radius: 2px;
+    padding: 2.2rem 1.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .marker {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .pathway-card h2 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-size: 1.55rem;
+    color: var(--navy);
+  }
+
+  .pathway-card p {
+    color: var(--navy-soft);
+    font-size: 1rem;
+    flex-grow: 1;
+  }
+
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.4rem;
+    border-radius: 2px;
+    text-align: center;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--navy);
+    color: var(--cream);
+    border: 1px solid var(--navy);
+  }
+  .btn-primary:hover { background: var(--navy-soft); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--gold);
+  }
+  .btn-secondary:hover { background: var(--parchment); }
+
+  .card-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  /* -------- Section: Books -------- */
+  section.books {
+    background: var(--navy);
+    padding: 4.5rem 1.5rem;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 2.6rem;
+  }
+
+  .books .eyebrow { color: var(--gold-soft); }
+
+  .books h2 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--cream);
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1.6rem;
+  }
+
+  .book-card {
+    background: var(--navy-soft);
+    border: 1px solid rgba(220,192,119,0.25);
+    padding: 1.4rem 1.2rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .book-cover-placeholder {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background: linear-gradient(160deg, var(--parchment), var(--gold-soft) 140%);
+    border: 1px solid rgba(255,255,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.75rem;
+  }
+
+  .book-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--cream);
+    font-size: 1.08rem;
+  }
+
+  .book-card a.btn-secondary {
+    color: var(--gold-soft);
+    border-color: var(--gold-soft);
+    width: 100%;
+  }
+  .book-card a.btn-secondary:hover { background: rgba(255,255,255,0.06); }
+
+  /* -------- Section: Friends of the Ministry -------- */
+  section.friends {
+    padding: 5rem 1.5rem;
+  }
+
+  .friends .section-inner {
+    max-width: 720px;
+    text-align: center;
+  }
+
+  .friends h2 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--navy);
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 1.1rem;
+  }
+
+  .friends p {
+    color: var(--navy-soft);
+    margin-bottom: 2rem;
+  }
+
+  .friends .btn-primary { padding: 1rem 2.2rem; }
+
+  /* -------- Email capture -------- */
+  section.email-capture {
+    background: var(--parchment);
+    padding: 4rem 1.5rem;
+  }
+
+  .email-capture .section-inner {
+    max-width: 560px;
+    text-align: center;
+  }
+
+  .email-capture h2 {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--navy);
+    font-size: 1.6rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .email-capture p {
+    color: var(--navy-soft);
+    font-size: 0.98rem;
+    margin-bottom: 1.6rem;
+  }
+
+  /*
+    ── MailerLite embed goes here ──
+    Once your free MailerLite account and form are created, replace the
+    <form id="mailerlite-placeholder"> block below with MailerLite's
+    generated embed code (Forms > Embed > HTML embed).
+  */
+  #mailerlite-placeholder {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #mailerlite-placeholder input[type="email"] {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(27,42,74,0.3);
+    background: #fff;
+    color: var(--ink);
+    min-width: 250px;
+    flex: 1 1 250px;
+  }
+
+  .placeholder-note {
+    margin-top: 0.9rem;
+    font-size: 0.78rem;
+    color: var(--navy-soft);
+    opacity: 0.75;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* -------- Footer -------- */
+  footer.site-footer {
+    background: var(--navy);
+    color: rgba(250,246,239,0.65);
+    padding: 2.4rem 1.5rem;
+    text-align: center;
+    font-size: 0.78rem;
+  }
+
+  footer.site-footer a {
+    color: var(--gold-soft);
+    text-decoration: none;
+  }
+  footer.site-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top">STEVE LEWEY</a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#assessment">Proverbs &amp; Kings</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#speaking">Speaking</a></li>
+        <li><a href="#coaching">Coaching</a></li>
+        <li><a href="#friends">Friends of the Ministry</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <p class="eyebrow">Ancient Intelligence for Modern Life</p>
+    <h1>What are you carrying?</h1>
+    <p class="lede">
+      Wisdom for life and leadership, drawn from the book of Proverbs and
+      tested in the real work of ministry and marketplace — for the team
+      you're leading, the church you're planting, the marriage you're
+      building, or the hard season you're just trying to get through.
+    </p>
+    <p class="lede-sub">
+      For marketplace leaders&nbsp;&middot;&nbsp;church planters and shepherds&nbsp;&middot;&nbsp;
+      couples building a life together&nbsp;&middot;&nbsp;anyone carrying something heavy right now.
+    </p>
+    <div class="hero-divider"></div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="section-inner about-inner">
+      <div class="about-portrait-placeholder">
+        <!-- TODO: replace with an actual photo of Steve -->
+        Photo
+      </div>
+      <div class="about-text">
+        <p class="eyebrow">About Steve</p>
+        <p>
+          I'm Steve Lewey — marketplace chaplain, author, and a founding
+          partner with Maxwell Leadership. My training runs through a BA
+          in Mass Communications from Western Kentucky University and an
+          MA in Biblical Studies from Dallas Theological Seminary, but
+          most of what I teach was learned the harder way — in
+          boardrooms, small groups, and hard conversations.
+        </p>
+        <p>
+          I live in the Piedmont of North Carolina with my wife, who's
+          been part of this work every step of the way. These days you'll
+          find me writing, coaching leaders one-on-one, speaking when I'm
+          invited, officiating the occasional wedding, and trying (with
+          mixed success) to stay out of the weeds of admin work I was
+          never quite built for.
+        </p>
+        <p>
+          If you're carrying something heavy — a team, a marriage, a hard
+          season, a calling you can't quite name — I'd be glad to walk
+          with you for a while.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIVE PATHWAYS ============ -->
+  <section class="pathways">
+
+    <!-- I. Proverbs & Kings -->
+    <div class="pathway-card" id="assessment">
+      <span class="marker">I.</span>
+      <h2>Proverbs &amp; Kings</h2>
+      <p>
+        Start with the free Proverbs Foundation Assessment, then go
+        deeper with the 21-Day Challenge, the AI Coaching Protocol,
+        or the full 8-week course.
+      </p>
+      <div class="card-links">
+        <!-- TODO: replace # with the live Proverbs Foundation Assessment link -->
+        <a class="btn btn-primary" href="#">Take the Free Assessment</a>
+        <!-- TODO: replace # with the Proverbs & Kings ecosystem / course page link -->
+        <a class="btn btn-secondary" href="#">Explore Proverbs &amp; Kings</a>
+      </div>
+    </div>
+
+    <!-- II. Books -->
+    <div class="pathway-card">
+      <span class="marker">II.</span>
+      <h2>The Books</h2>
+      <p>
+        Field-tested wisdom in print — for leaders, planters,
+        parents, and anyone carrying something heavy.
+      </p>
+      <div class="card-links">
+        <a class="btn btn-secondary" href="#books">See All Books</a>
+      </div>
+    </div>
+
+    <!-- III. Speaking & Teaching -->
+    <div class="pathway-card" id="speaking">
+      <span class="marker">III.</span>
+      <h2>Speaking &amp; Teaching</h2>
+      <p>
+        Practitioner-tested wisdom for your team, church, or event —
+        from a single talk to a full workshop.
+      </p>
+      <div class="card-links">
+        <!-- TODO: replace # with a speaking topics page or booking link -->
+        <a class="btn btn-secondary" href="#">See Speaking Topics</a>
+        <!-- TODO: replace # with a contact/booking link or mailto: -->
+        <a class="btn btn-secondary" href="#">Request Steve to Speak</a>
+      </div>
+    </div>
+
+    <!-- IV. One-on-One Coaching -->
+    <div class="pathway-card" id="coaching">
+      <span class="marker">IV.</span>
+      <h2>Thinking Partner &amp; Coaching</h2>
+      <p>
+        A confidential thinking partner for leaders navigating something
+        big — one-on-one, ongoing, or a single working session.
+      </p>
+      <div class="card-links">
+        <!-- TODO: replace # with a coaching/consulting inquiry link -->
+        <a class="btn btn-secondary" href="#">Learn About Coaching</a>
+      </div>
+    </div>
+
+    <!-- V. Friends of the Ministry -->
+    <div class="pathway-card" id="friends">
+      <span class="marker">V.</span>
+      <h2>Friends of the Ministry</h2>
+      <p>
+        A small circle who help sustain this work directly —
+        depth with a few, rather than reach for its own sake.
+      </p>
+      <div class="card-links">
+        <!-- TODO: replace # with the Friends of the Ministry support/signup link -->
+        <a class="btn btn-primary" href="#">Join the Circle</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ BOOKS ============ -->
+  <section class="books" id="books">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow">II. The Books</p>
+        <h2>Field-Tested Wisdom in Print</h2>
+      </div>
+      <div class="book-grid">
+
+        <div class="book-card">
+          <div class="book-cover-placeholder">Cover:<br>Hold Fast</div>
+          <h3>Hold Fast</h3>
+          <!-- TODO: replace # with the Amazon KDP link for Hold Fast -->
+          <a class="btn btn-secondary" href="#">View on Amazon</a>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover-placeholder">Cover:<br>The Gathering</div>
+          <h3>The Gathering</h3>
+          <!-- TODO: replace # with the Amazon KDP link for The Gathering -->
+          <a class="btn btn-secondary" href="#">View on Amazon</a>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover-placeholder">Cover:<br>Field Manual</div>
+          <h3>Field Manual for Planting &amp; Multiplying New Testament Gatherings</h3>
+          <!-- TODO: replace # with the Amazon KDP link for Field Manual -->
+          <a class="btn btn-secondary" href="#">View on Amazon</a>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover-placeholder">Cover:<br>Sawdust and the Stars</div>
+          <h3>Sawdust and the Stars</h3>
+          <!-- TODO: replace # with the Amazon KDP link for Sawdust and the Stars -->
+          <a class="btn btn-secondary" href="#">View on Amazon</a>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover-placeholder">Cover:<br>What the Manger Cost</div>
+          <h3>What the Manger Cost</h3>
+          <!-- TODO: replace # with the Amazon KDP link for What the Manger Cost (once published) -->
+          <a class="btn btn-secondary" href="#">View on Amazon</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EMAIL CAPTURE ============ -->
+  <section class="email-capture">
+    <div class="section-inner">
+      <h2>Stay in the Well</h2>
+      <p>One short note, occasionally — no noise, no funnel spam.</p>
+
+      <!-- Replace this entire form with your MailerLite embed once your account is live -->
+      <form id="mailerlite-placeholder" onsubmit="return false;">
+        <label for="email-input" class="visually-hidden" style="position:absolute;left:-9999px;">Email address</label>
+        <input id="email-input" type="email" placeholder="you@example.com" required>
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+      <p class="placeholder-note">Placeholder form — connect to MailerLite before publishing.</p>
+    </div>
+  </section>
+
+  <!-- ============ FRIENDS OF THE MINISTRY (detail) ============ -->
+  <section class="friends">
+    <div class="section-inner">
+      <p class="eyebrow">III. Friends of the Ministry</p>
+      <h2>Join a Small Circle That Sustains This Work</h2>
+      <p>
+        This ministry runs on depth with a few rather than reach for its
+        own sake. Friends of the Ministry give what they're able, monthly
+        or as they're moved, to help carry the work of writing, teaching,
+        and shepherding forward.
+      </p>
+      <!-- TODO: replace # with the Friends of the Ministry giving/signup link -->
+      <a class="btn btn-primary" href="#">Become a Friend of the Ministry</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Steve Lewey &middot; Light Based Leadership &middot; Piedmont, North Carolina</p>
+  <p style="margin-top:0.5rem;">
+    <!-- TODO: if you want a Prayers for Hard Days link here later, point it to your YouTube channel or a stevelewey.com section rather than the standalone domain -->
+  </p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
