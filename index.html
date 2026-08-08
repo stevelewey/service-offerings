@@ -346,6 +346,21 @@
   }
   .book-card a.btn-secondary:hover { background: rgba(255,255,255,0.06); }
 
+  .book-cover-img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.25);
+    display: block;
+  }
+
+  .book-card .card-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
   /* -------- Section: Friends of the Ministry -------- */
   section.friends {
     padding: 5rem 1.5rem;
@@ -461,6 +476,7 @@
         <li><a href="#books">Books</a></li>
         <li><a href="#coaching">Coaching</a></li>
         <li><a href="#friends">Friends of the Ministry</a></li>
+        <li><a href="#podcast">Podcast</a></li>
       </ul>
     </nav>
   </div>
@@ -488,7 +504,7 @@
   <!-- ============ ABOUT ============ -->
   <section class="about" id="about">
     <div class="section-inner about-inner">
-      <img class="about-portrait" src="steve-lewey.jpg" alt="Portrait of Steve Lewey">
+      <img class="about-portrait" src="images/steve-lewey.jpg" alt="Portrait of Steve Lewey">
       <div class="about-text">
         <p class="eyebrow">About Steve</p>
         <p>
@@ -587,6 +603,20 @@
       </div>
     </div>
 
+    <!-- VI. The Podcast -->
+    <div class="pathway-card" id="podcast">
+      <span class="marker">VI.</span>
+      <h2>The Podcast</h2>
+      <p>
+        "Steve Lewey: Wisdom for the Marketplace and Life" —
+        ancient wisdom applied to the everyday work of leading,
+        building, and staying faithful under pressure.
+      </p>
+      <div class="card-links">
+        <a class="btn btn-primary" href="https://open.spotify.com/episode/67kecoqLWqPxQqE1ZUzGEi?si=DEz7xowNSjCwIg6dTyLuGQ">Listen on Spotify</a>
+      </div>
+    </div>
+
   </section>
 
   <!-- ============ BOOKS ============ -->
@@ -599,26 +629,26 @@
       <div class="book-grid">
 
         <div class="book-card">
-          <div class="book-cover-placeholder">Cover:<br>Hold Fast</div>
+          <img class="book-cover-img" src="hold-fast-cover.jpg" alt="Hold Fast book cover">
           <h3>Hold Fast</h3>
           <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0HBGXKG4H">View on Amazon</a>
         </div>
 
         <div class="book-card">
-          <div class="book-cover-placeholder">Cover:<br>The Gathering</div>
+          <img class="book-cover-img" src="the-gathering-cover.jpg" alt="The Gathering book cover">
           <h3>The Gathering</h3>
           <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0HC8F3TR1">View on Amazon</a>
         </div>
 
         <div class="book-card">
-          <div class="book-cover-placeholder">Cover:<br>Field Manual</div>
+          <img class="book-cover-img" src="field-manual-cover.png" alt="Field Manual for Planting and Multiplying New Testament Gatherings book cover">
           <h3>Field Manual for Planting &amp; Multiplying New Testament Gatherings</h3>
           <!-- Not yet published — swap in the Amazon KDP link once live -->
           <span class="btn btn-secondary" aria-disabled="true" style="opacity:0.55;cursor:default;">Coming Soon</span>
         </div>
 
         <div class="book-card">
-          <div class="book-cover-placeholder">Cover:<br>Sawdust and the Stars</div>
+          <img class="book-cover-img" src="sawdust-and-the-stars-cover.jpg" alt="Sawdust and the Stars book cover">
           <h3>Sawdust and the Stars</h3>
           <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0H957Z76Y">View on Amazon</a>
         </div>
@@ -631,9 +661,12 @@
         </div>
 
         <div class="book-card">
-          <div class="book-cover-placeholder">Cover:<br>Prayers for Hard Days</div>
+          <img class="book-cover-img" src="prayers-for-hard-days-cover.jpg" alt="Prayers for Hard Days book cover">
           <h3>Prayers for Hard Days</h3>
-          <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0H6M8JRMC">View on Amazon</a>
+          <div class="card-links">
+            <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0H6M8JRMC">View on Amazon</a>
+            <a class="btn btn-secondary" href="https://www.youtube.com/@PrayersForHardDays-l8s">Watch on YouTube</a>
+          </div>
         </div>
 
       </div>
@@ -675,11 +708,7 @@
 
 <footer class="site-footer">
   <p>&copy; <span id="year"></span> Steve Lewey &middot; Light Based Leadership &middot; Piedmont, North Carolina</p>
-  <p style="margin-top:0.5rem;">
-    <a href="https://www.youtube.com/@PrayersForHardDays-l8s">Prayers for Hard Days on YouTube</a>
-    &middot;
-    <a href="https://open.spotify.com/episode/67kecoqLWqPxQqE1ZUzGEi?si=DEz7xowNSjCwIg6dTyLuGQ">Listen to the Podcast</a>
-  </p>
+</footer>
 </footer>
 
 <script>
