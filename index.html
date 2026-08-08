@@ -171,23 +171,15 @@
 
   @media (max-width: 700px) {
     .about-inner { grid-template-columns: 1fr; }
-    .about-portrait-placeholder { width: 160px; margin: 0 auto; }
+    .about-portrait { width: 160px; margin: 0 auto; }
   }
 
-  .about-portrait-placeholder {
+  .about-portrait {
     width: 100%;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-    background: linear-gradient(160deg, var(--gold-soft), var(--navy-soft) 140%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--cream);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    object-fit: cover;
+    border: 3px solid var(--gold-soft);
   }
 
   .about-text .eyebrow {
@@ -465,8 +457,8 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#assessment">Proverbs &amp; Kings</a></li>
+        <li><a href="#courses">Courses</a></li>
         <li><a href="#books">Books</a></li>
-        <li><a href="#speaking">Speaking</a></li>
         <li><a href="#coaching">Coaching</a></li>
         <li><a href="#friends">Friends of the Ministry</a></li>
       </ul>
@@ -496,10 +488,7 @@
   <!-- ============ ABOUT ============ -->
   <section class="about" id="about">
     <div class="section-inner about-inner">
-      <div class="about-portrait-placeholder">
-        <!-- TODO: replace with an actual photo of Steve -->
-        Photo
-      </div>
+      <img class="about-portrait" src="images/steve-lewey.jpg" alt="Portrait of Steve Lewey">
       <div class="about-text">
         <p class="eyebrow">About Steve</p>
         <p>
@@ -513,8 +502,8 @@
         <p>
           I live in the Piedmont of North Carolina with my wife, who's
           been part of this work every step of the way. These days you'll
-          find me writing, coaching leaders one-on-one, speaking when I'm
-          invited, officiating the occasional wedding, and trying (with
+          find me writing, coaching leaders one-on-one, <a href="https://stevelewey.github.io/speaking/">speaking when I'm
+          invited</a>, officiating the occasional wedding, and trying (with
           mixed success) to stay out of the weeds of admin work I was
           never quite built for.
         </p>
@@ -527,7 +516,7 @@
     </div>
   </section>
 
-  <!-- ============ FIVE PATHWAYS ============ -->
+  <!-- ============ FOUR PATHWAYS ============ -->
   <section class="pathways">
 
     <!-- I. Proverbs & Kings -->
@@ -535,21 +524,33 @@
       <span class="marker">I.</span>
       <h2>Proverbs &amp; Kings</h2>
       <p>
-        Start with the free Proverbs Foundation Assessment, then go
-        deeper with the 21-Day Challenge, the AI Coaching Protocol,
-        or the full 8-week course.
+        Start with the free Proverbs Foundation Assessment — a short,
+        practical gut-check for how you're actually leading right now.
       </p>
       <div class="card-links">
-        <!-- TODO: replace # with the live Proverbs Foundation Assessment link -->
-        <a class="btn btn-primary" href="#">Take the Free Assessment</a>
-        <!-- TODO: replace # with the Proverbs & Kings ecosystem / course page link -->
-        <a class="btn btn-secondary" href="#">Explore Proverbs &amp; Kings</a>
+        <a class="btn btn-primary" href="https://stevelewey.github.io/proverbs-foundation-assessment/">Take the Free Assessment</a>
       </div>
     </div>
 
-    <!-- II. Books -->
-    <div class="pathway-card">
+    <!-- II. Courses -->
+    <div class="pathway-card" id="courses">
       <span class="marker">II.</span>
+      <h2>Courses</h2>
+      <p>
+        Ready to go deeper? Browse the full catalog — the 21-Day
+        Challenge, the AI Coaching Protocol, and the 8-week
+        self-guided course.
+      </p>
+      <div class="card-links">
+        <a class="btn btn-secondary" href="https://stevelewey.github.io/proverbs-challenge/">21-Day Proverbs Challenge</a>
+        <a class="btn btn-secondary" href="https://stevelewey.github.io/proverbs-kings-course/">Proverbs &amp; Kings Course</a>
+        <a class="btn btn-secondary" href="https://stevelewey.github.io/ai-coaching-protocol/">AI Coaching Protocol</a>
+      </div>
+    </div>
+
+    <!-- III. Books -->
+    <div class="pathway-card">
+      <span class="marker">III.</span>
       <h2>The Books</h2>
       <p>
         Field-tested wisdom in print — for leaders, planters,
@@ -557,22 +558,6 @@
       </p>
       <div class="card-links">
         <a class="btn btn-secondary" href="#books">See All Books</a>
-      </div>
-    </div>
-
-    <!-- III. Speaking & Teaching -->
-    <div class="pathway-card" id="speaking">
-      <span class="marker">III.</span>
-      <h2>Speaking &amp; Teaching</h2>
-      <p>
-        Practitioner-tested wisdom for your team, church, or event —
-        from a single talk to a full workshop.
-      </p>
-      <div class="card-links">
-        <!-- TODO: replace # with a speaking topics page or booking link -->
-        <a class="btn btn-secondary" href="#">See Speaking Topics</a>
-        <!-- TODO: replace # with a contact/booking link or mailto: -->
-        <a class="btn btn-secondary" href="#">Request Steve to Speak</a>
       </div>
     </div>
 
@@ -585,8 +570,7 @@
         big — one-on-one, ongoing, or a single working session.
       </p>
       <div class="card-links">
-        <!-- TODO: replace # with a coaching/consulting inquiry link -->
-        <a class="btn btn-secondary" href="#">Learn About Coaching</a>
+        <a class="btn btn-secondary" href="https://stevelewey.github.io/coaching-thinking-partner/">Learn About Coaching</a>
       </div>
     </div>
 
@@ -599,8 +583,7 @@
         depth with a few, rather than reach for its own sake.
       </p>
       <div class="card-links">
-        <!-- TODO: replace # with the Friends of the Ministry support/signup link -->
-        <a class="btn btn-primary" href="#">Join the Circle</a>
+        <a class="btn btn-primary" href="https://stevelewey.github.io/friends-of-this-ministry/">Join the Circle</a>
       </div>
     </div>
 
@@ -610,7 +593,7 @@
   <section class="books" id="books">
     <div class="section-inner">
       <div class="section-head">
-        <p class="eyebrow">II. The Books</p>
+        <p class="eyebrow">III. The Books</p>
         <h2>Field-Tested Wisdom in Print</h2>
       </div>
       <div class="book-grid">
@@ -618,36 +601,39 @@
         <div class="book-card">
           <div class="book-cover-placeholder">Cover:<br>Hold Fast</div>
           <h3>Hold Fast</h3>
-          <!-- TODO: replace # with the Amazon KDP link for Hold Fast -->
-          <a class="btn btn-secondary" href="#">View on Amazon</a>
+          <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0HBGXKG4H">View on Amazon</a>
         </div>
 
         <div class="book-card">
           <div class="book-cover-placeholder">Cover:<br>The Gathering</div>
           <h3>The Gathering</h3>
-          <!-- TODO: replace # with the Amazon KDP link for The Gathering -->
-          <a class="btn btn-secondary" href="#">View on Amazon</a>
+          <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0HC8F3TR1">View on Amazon</a>
         </div>
 
         <div class="book-card">
           <div class="book-cover-placeholder">Cover:<br>Field Manual</div>
           <h3>Field Manual for Planting &amp; Multiplying New Testament Gatherings</h3>
-          <!-- TODO: replace # with the Amazon KDP link for Field Manual -->
-          <a class="btn btn-secondary" href="#">View on Amazon</a>
+          <!-- Not yet published — swap in the Amazon KDP link once live -->
+          <span class="btn btn-secondary" aria-disabled="true" style="opacity:0.55;cursor:default;">Coming Soon</span>
         </div>
 
         <div class="book-card">
           <div class="book-cover-placeholder">Cover:<br>Sawdust and the Stars</div>
           <h3>Sawdust and the Stars</h3>
-          <!-- TODO: replace # with the Amazon KDP link for Sawdust and the Stars -->
-          <a class="btn btn-secondary" href="#">View on Amazon</a>
+          <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0H957Z76Y">View on Amazon</a>
         </div>
 
         <div class="book-card">
           <div class="book-cover-placeholder">Cover:<br>What the Manger Cost</div>
           <h3>What the Manger Cost</h3>
-          <!-- TODO: replace # with the Amazon KDP link for What the Manger Cost (once published) -->
-          <a class="btn btn-secondary" href="#">View on Amazon</a>
+          <!-- Not yet published — swap in the Amazon KDP link once live -->
+          <span class="btn btn-secondary" aria-disabled="true" style="opacity:0.55;cursor:default;">Coming Soon</span>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover-placeholder">Cover:<br>Prayers for Hard Days</div>
+          <h3>Prayers for Hard Days</h3>
+          <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0H6M8JRMC">View on Amazon</a>
         </div>
 
       </div>
@@ -673,7 +659,7 @@
   <!-- ============ FRIENDS OF THE MINISTRY (detail) ============ -->
   <section class="friends">
     <div class="section-inner">
-      <p class="eyebrow">III. Friends of the Ministry</p>
+      <p class="eyebrow">V. Friends of the Ministry</p>
       <h2>Join a Small Circle That Sustains This Work</h2>
       <p>
         This ministry runs on depth with a few rather than reach for its
@@ -681,8 +667,7 @@
         or as they're moved, to help carry the work of writing, teaching,
         and shepherding forward.
       </p>
-      <!-- TODO: replace # with the Friends of the Ministry giving/signup link -->
-      <a class="btn btn-primary" href="#">Become a Friend of the Ministry</a>
+      <a class="btn btn-primary" href="https://stevelewey.github.io/friends-of-this-ministry/">Become a Friend of the Ministry</a>
     </div>
   </section>
 
@@ -691,7 +676,9 @@
 <footer class="site-footer">
   <p>&copy; <span id="year"></span> Steve Lewey &middot; Light Based Leadership &middot; Piedmont, North Carolina</p>
   <p style="margin-top:0.5rem;">
-    <!-- TODO: if you want a Prayers for Hard Days link here later, point it to your YouTube channel or a stevelewey.com section rather than the standalone domain -->
+    <a href="https://www.youtube.com/@PrayersForHardDays-l8s">Prayers for Hard Days on YouTube</a>
+    &middot;
+    <a href="https://open.spotify.com/episode/67kecoqLWqPxQqE1ZUzGEi?si=DEz7xowNSjCwIg6dTyLuGQ">Listen to the Podcast</a>
   </p>
 </footer>
 
