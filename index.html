@@ -3,41 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Steve Lewey — Ancient Intelligence for Modern Life</title>
+
+<title>Steve Lewey | Ancient Intelligence for Modern Decisions</title>
+
+<meta name="description" content="Steve Lewey helps leaders, business owners, professionals, and thoughtful people think clearly about important decisions, responsibilities, transitions, and relationships through practical wisdom rooted in Proverbs.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --navy: #1B2A4A;
     --navy-soft: #2C3E5C;
+    --navy-deep: #142038;
     --gold: #C9A84C;
     --gold-soft: #DCC077;
+    --gold-dark: #9C8033;
     --cream: #FAF6EF;
     --parchment: #F0E9D8;
+    --white: #FFFFFF;
     --ink: #24304A;
+    --ink-soft: #5C6575;
+    --line: rgba(27,42,74,0.12);
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+  }
 
   body {
     font-family: 'EB Garamond', serif;
     background: var(--cream);
     color: var(--ink);
-    line-height: 1.65;
+    line-height: 1.7;
     font-size: 19px;
   }
 
-  h1, h2, h3, .eyebrow, nav a, .btn, .site-footer, .marker {
+  h1, h2, h3, nav, .eyebrow, .btn, .site-footer,
+  .price, .small-label, .framework-label {
     font-family: 'Montserrat', sans-serif;
   }
 
-  a { color: inherit; }
+  a {
+    color: inherit;
+  }
 
-  img { max-width: 100%; display: block; }
+  img {
+    max-width: 100%;
+    display: block;
+  }
 
-  /* -------- Skip link / accessibility -------- */
+  /* ACCESSIBILITY */
+
   .skip-link {
     position: absolute;
     left: -999px;
@@ -47,708 +71,1686 @@
     padding: 0.75rem 1.25rem;
     z-index: 100;
   }
-  .skip-link:focus { left: 1rem; top: 1rem; }
 
-  a:focus-visible, button:focus-visible {
+  .skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible {
     outline: 2px solid var(--gold);
     outline-offset: 3px;
   }
 
-  /* -------- Header -------- */
+  /* HEADER */
+
   header.site-header {
     position: sticky;
     top: 0;
-    z-index: 10;
-    background: var(--cream);
-    border-bottom: 1px solid rgba(27,42,74,0.12);
+    z-index: 20;
+    background: rgba(250,246,239,0.97);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(8px);
   }
 
   .header-inner {
-    max-width: 1100px;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 1.1rem 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
   }
 
   .brand {
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     color: var(--navy);
-    font-size: 1.05rem;
+    font-size: 1rem;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   nav.primary-nav ul {
     list-style: none;
     display: flex;
-    gap: 1.75rem;
+    gap: 1.5rem;
+    align-items: center;
   }
 
   nav.primary-nav a {
     text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 500;
+    font-size: 0.76rem;
+    font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--navy-soft);
     border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
-    transition: border-color 0.2s ease, color 0.2s ease;
-  }
-  nav.primary-nav a:hover { border-color: var(--gold); color: var(--navy); }
-
-  @media (max-width: 640px) {
-    nav.primary-nav ul { gap: 1rem; }
-    nav.primary-nav a { font-size: 0.72rem; }
+    padding-bottom: 3px;
+    transition: color 0.2s ease, border-color 0.2s ease;
   }
 
-  /* -------- Hero -------- */
-  .hero {
-    max-width: 780px;
+  nav.primary-nav a:hover {
+    color: var(--navy);
+    border-color: var(--gold);
+  }
+
+  nav.primary-nav a.nav-cta {
+    color: var(--navy);
+    border: 1px solid var(--gold);
+    padding: 0.55rem 0.85rem;
+  }
+
+  nav.primary-nav a.nav-cta:hover {
+    background: var(--parchment);
+  }
+
+  @media (max-width: 850px) {
+    .header-inner {
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    nav.primary-nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 1rem;
+    }
+  }
+
+  /* GENERAL */
+
+  .section-inner {
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 5.5rem 1.5rem 3.5rem;
-    text-align: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .narrow {
+    max-width: 760px;
   }
 
   .eyebrow {
     display: inline-block;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 1.4rem;
-  }
-
-  .hero h1 {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    color: var(--navy);
-    line-height: 1.15;
-    margin-bottom: 1.3rem;
-  }
-
-  .hero p.lede {
-    font-size: 1.2rem;
-    color: var(--navy-soft);
-    max-width: 600px;
-    margin: 0 auto 1rem;
-  }
-
-  .hero p.lede-sub {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.02em;
-    color: var(--navy-soft);
-    opacity: 0.8;
-    max-width: 560px;
-    margin: 0 auto 1.6rem;
-  }
-
-  .hero-divider {
-    width: 46px;
-    height: 2px;
-    background: var(--gold);
-    margin: 0 auto 2.2rem;
-  }
-
-  /* -------- About -------- */
-  section.about {
-    background: var(--parchment);
-    padding: 3.5rem 1.5rem;
-  }
-
-  .about-inner {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 2.5rem;
-    align-items: start;
-  }
-
-  @media (max-width: 700px) {
-    .about-inner { grid-template-columns: 1fr; }
-    .about-portrait { width: 160px; margin: 0 auto; }
-  }
-
-  .about-portrait {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--gold-soft);
-  }
-
-  .about-text .eyebrow {
-    display: block;
+    color: var(--gold-dark);
+    font-weight: 700;
     margin-bottom: 0.9rem;
   }
 
-  .about-text p {
-    color: var(--navy-soft);
-    margin-bottom: 1rem;
-    font-size: 1.02rem;
-  }
-  .about-text p:last-child { margin-bottom: 0; }
-
-  /* -------- Pathways (I-V) -------- */
-  .pathways {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 3.5rem 1.5rem 5rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.75rem;
+  .eyebrow-light {
+    color: var(--gold-soft);
   }
 
-  @media (max-width: 900px) {
-    .pathways { grid-template-columns: 1fr; max-width: 560px; }
-  }
-
-  .pathway-card {
-    background: #fff;
-    border: 1px solid rgba(27,42,74,0.10);
-    border-radius: 2px;
-    padding: 2.2rem 1.9rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-  }
-
-  .marker {
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    font-weight: 700;
-  }
-
-  .pathway-card h2 {
+  .section-title {
     font-family: 'EB Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.18;
     font-weight: 500;
-    font-size: 1.55rem;
     color: var(--navy);
+    margin-bottom: 1rem;
   }
 
-  .pathway-card p {
-    color: var(--navy-soft);
-    font-size: 1rem;
-    flex-grow: 1;
+  .section-title em {
+    color: var(--gold-dark);
   }
+
+  .section-intro {
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+    max-width: 700px;
+  }
+
+  /* BUTTONS */
 
   .btn {
     display: inline-block;
     text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
-    padding: 0.85rem 1.4rem;
-    border-radius: 2px;
+    padding: 0.9rem 1.45rem;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
     text-align: center;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
   }
 
   .btn-primary {
     background: var(--navy);
     color: var(--cream);
-    border: 1px solid var(--navy);
-  }
-  .btn-primary:hover { background: var(--navy-soft); }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--navy);
-    border: 1px solid var(--gold);
-  }
-  .btn-secondary:hover { background: var(--parchment); }
-
-  .card-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    border-color: var(--navy);
   }
 
-  /* -------- Section: Books -------- */
-  section.books {
-    background: var(--navy);
-    padding: 4.5rem 1.5rem;
-  }
-
-  .section-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-head {
-    text-align: center;
-    margin-bottom: 2.6rem;
-  }
-
-  .books .eyebrow { color: var(--gold-soft); }
-
-  .books h2 {
-    font-family: 'EB Garamond', serif;
-    font-weight: 500;
-    font-style: italic;
-    color: var(--cream);
-    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-  }
-
-  .book-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 1.6rem;
-  }
-
-  .book-card {
+  .btn-primary:hover {
     background: var(--navy-soft);
-    border: 1px solid rgba(220,192,119,0.25);
-    padding: 1.4rem 1.2rem 1.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    align-items: center;
-    text-align: center;
   }
 
-  .book-cover-placeholder {
-    width: 100%;
-    aspect-ratio: 2 / 3;
-    background: linear-gradient(160deg, var(--parchment), var(--gold-soft) 140%);
-    border: 1px solid rgba(255,255,255,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--navy);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 0.75rem;
-  }
-
-  .book-card h3 {
-    font-family: 'EB Garamond', serif;
-    font-weight: 500;
-    font-style: italic;
-    color: var(--cream);
-    font-size: 1.08rem;
-  }
-
-  .book-card a.btn-secondary {
-    color: var(--gold-soft);
-    border-color: var(--gold-soft);
-    width: 100%;
-  }
-  .book-card a.btn-secondary:hover { background: rgba(255,255,255,0.06); }
-
-  .book-cover-img {
-    width: 100%;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    border: 1px solid rgba(255,255,255,0.25);
-    display: block;
-  }
-
-  .book-card .card-links {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  /* -------- Section: Friends of the Ministry -------- */
-  section.friends {
-    padding: 5rem 1.5rem;
-  }
-
-  .friends .section-inner {
-    max-width: 720px;
-    text-align: center;
-  }
-
-  .friends h2 {
-    font-family: 'EB Garamond', serif;
-    font-weight: 500;
-    font-style: italic;
-    color: var(--navy);
-    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-    margin-bottom: 1.1rem;
-  }
-
-  .friends p {
-    color: var(--navy-soft);
-    margin-bottom: 2rem;
-  }
-
-  .friends .btn-primary { padding: 1rem 2.2rem; }
-
-  /* -------- Email capture -------- */
-  section.email-capture {
-    background: var(--parchment);
-    padding: 4rem 1.5rem;
-  }
-
-  .email-capture .section-inner {
-    max-width: 560px;
-    text-align: center;
-  }
-
-  .email-capture h2 {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-weight: 500;
-    color: var(--navy);
-    font-size: 1.6rem;
-    margin-bottom: 0.7rem;
-  }
-
-  .email-capture p {
-    color: var(--navy-soft);
-    font-size: 0.98rem;
-    margin-bottom: 1.6rem;
-  }
-
-  /*
-    ── MailerLite embed goes here ──
-    Once your free MailerLite account and form are created, replace the
-    <form id="mailerlite-placeholder"> block below with MailerLite's
-    generated embed code (Forms > Embed > HTML embed).
-  */
-  #mailerlite-placeholder {
-    display: flex;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  #mailerlite-placeholder input[type="email"] {
-    font-family: 'EB Garamond', serif;
-    font-size: 1rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid rgba(27,42,74,0.3);
-    background: #fff;
-    color: var(--ink);
-    min-width: 250px;
-    flex: 1 1 250px;
-  }
-
-  .placeholder-note {
-    margin-top: 0.9rem;
-    font-size: 0.78rem;
-    color: var(--navy-soft);
-    opacity: 0.75;
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  /* -------- Assessment CTA -------- */
-  section.assessment-cta {
-    background: var(--navy);
-    padding: 3.5rem 1.5rem;
-  }
-
-  .assessment-cta .section-inner {
-    max-width: 640px;
-    text-align: center;
-  }
-
-  .assessment-cta .eyebrow { color: var(--gold-soft); }
-
-  .assessment-cta h2 {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-weight: 500;
-    color: var(--cream);
-    font-size: clamp(1.5rem, 3vw, 1.9rem);
-    line-height: 1.3;
-    margin-bottom: 0.9rem;
-  }
-
-  .assessment-cta p.sub {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.02em;
-    color: rgba(250,246,239,0.75);
-    margin-bottom: 1.8rem;
-  }
-
-  .assessment-cta .btn-primary {
+  .btn-gold {
     background: var(--gold);
+    color: var(--navy-deep);
     border-color: var(--gold);
-    color: var(--navy);
-    padding: 1rem 2.2rem;
-    font-weight: 700;
   }
-  .assessment-cta .btn-primary:hover {
+
+  .btn-gold:hover {
     background: var(--gold-soft);
     border-color: var(--gold-soft);
   }
 
-  /* -------- Footer -------- */
-  footer.site-footer {
-    background: var(--navy);
-    color: rgba(250,246,239,0.65);
-    padding: 2.4rem 1.5rem;
+  .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    border-color: var(--gold);
+  }
+
+  .btn-secondary:hover {
+    background: var(--parchment);
+  }
+
+  .btn-light {
+    background: transparent;
+    color: var(--cream);
+    border-color: var(--gold-soft);
+  }
+
+  .btn-light:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* HERO */
+
+  .hero {
+    background: var(--cream);
+    padding: 6.5rem 1.5rem 5.5rem;
     text-align: center;
+  }
+
+  .hero-inner {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 4.6rem);
+    font-weight: 500;
+    line-height: 1.08;
+    color: var(--navy);
+    margin-bottom: 1.4rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-dark);
+  }
+
+  .hero-lede {
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+    color: var(--navy-soft);
+  }
+
+  .hero-support {
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+  }
+
+  .hero-divider {
+    width: 50px;
+    height: 2px;
+    background: var(--gold);
+    margin: 2rem auto;
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .hero-note {
+    margin-top: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.03em;
+  }
+
+  /* START HERE */
+
+  .start-here {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 4.5rem 1.5rem;
+  }
+
+  .start-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .start-here h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .start-here h2 em {
+    color: var(--gold-soft);
+  }
+
+  .start-here p {
+    max-width: 650px;
+    margin: 0 auto 1.8rem;
+    color: rgba(250,246,239,0.76);
+  }
+
+  .start-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(250,246,239,0.5);
+    margin-top: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* ABOUT */
+
+  .about {
+    background: var(--parchment);
+    padding: 5.5rem 1.5rem;
+  }
+
+  .about-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-portrait {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--gold-soft);
+  }
+
+  .about-text p {
+    color: var(--navy-soft);
+    margin-bottom: 1rem;
+  }
+
+  .about-text strong {
+    color: var(--navy);
+  }
+
+  .about-link {
+    color: var(--navy);
+    text-decoration-color: var(--gold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 700px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .about-portrait {
+      margin: 0 auto;
+    }
+  }
+
+  /* ANCIENT INTELLIGENCE */
+
+  .ancient {
+    background: var(--cream);
+    padding: 5.5rem 1.5rem;
+  }
+
+  .ancient-header {
+    max-width: 720px;
+    margin-bottom: 3rem;
+  }
+
+  .ancient-method {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    margin-bottom: 3rem;
+  }
+
+  .method-card {
+    background: var(--white);
+    padding: 2rem 1.6rem;
+  }
+
+  .method-number {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--gold-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.7rem;
+  }
+
+  .method-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .method-card p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+
+  .framework-intro {
+    margin-bottom: 1.4rem;
+  }
+
+  .framework-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .framework-card {
+    border: 1px solid var(--line);
+    background: var(--white);
+    padding: 1.25rem;
+  }
+
+  .framework-label {
+    font-size: 0.65rem;
+    color: var(--gold-dark);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .framework-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+
+  .framework-card p {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .ancient-action {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+
+  @media (max-width: 850px) {
+    .ancient-method {
+      grid-template-columns: 1fr;
+    }
+
+    .framework-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .framework-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* THINKING PARTNER */
+
+  .advisor {
+    background: var(--parchment);
+    padding: 5.5rem 1.5rem;
+  }
+
+  .advisor-inner {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .advisor-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .advisor-copy p {
+    color: var(--navy-soft);
+    margin-bottom: 1rem;
+  }
+
+  .advisor-copy .lead {
+    font-size: 1.18rem;
+    color: var(--navy);
+  }
+
+  .advisor-card {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 2.2rem;
+    text-align: center;
+  }
+
+  .advisor-card .small-label {
+    color: var(--gold-soft);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+
+  .advisor-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1.3rem;
+  }
+
+  .advisor-price {
+    margin-bottom: 1.2rem;
+  }
+
+  .advisor-price .price {
+    color: var(--gold-soft);
+    font-size: 2.4rem;
+    font-weight: 700;
+  }
+
+  .advisor-price span {
+    color: rgba(250,246,239,0.6);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+  }
+
+  .advisor-card p {
+    color: rgba(250,246,239,0.7);
+    font-size: 0.92rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .advisor-card .btn {
+    width: 100%;
+    margin-bottom: 0.6rem;
+  }
+
+  .advisor-card .minor {
+    display: block;
+    color: rgba(250,246,239,0.48);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+  }
+
+  @media (max-width: 760px) {
+    .advisor-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* NOTES */
+
+  .notes {
+    background: var(--white);
+    padding: 5rem 1.5rem;
+  }
+
+  .notes-inner {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .notes h2 {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--navy);
+    font-size: 2.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .notes p {
+    color: var(--ink-soft);
+    margin-bottom: 1.8rem;
+  }
+
+  /* MailerLite */
+
+  .ml-form-embedContainer {
+    max-width: 520px !important;
+    margin: 0 auto !important;
+  }
+
+  .ml-form-embedWrapper {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .ml-form-embedWrapper h4,
+  .ml-form-embedWrapper p {
+    font-family: 'EB Garamond', serif !important;
+  }
+
+  /* Hide duplicate MailerLite heading because our page already has it */
+  .notes .ml-form-embedWrapper .ml-form-embedBody h4,
+  .notes .ml-form-embedWrapper .ml-form-successBody h4 {
+    display: none !important;
+  }
+
+  /* RESOURCES */
+
+  .resources {
+    background: var(--cream);
+    padding: 5.5rem 1.5rem;
+  }
+
+  .resources-header {
+    max-width: 700px;
+    margin-bottom: 2.5rem;
+  }
+
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .resource-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 1.8rem;
+  }
+
+  .resource-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .resource-card p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .resource-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .resource-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+  }
+
+  .resource-links a:hover {
+    color: var(--gold-dark);
+  }
+
+  @media (max-width: 650px) {
+    .resource-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* BOOKS */
+
+  .books {
+    background: var(--navy);
+    padding: 5.5rem 1.5rem;
+  }
+
+  .books .section-title {
+    color: var(--cream);
+  }
+
+  .books .section-title em {
+    color: var(--gold-soft);
+  }
+
+  .books .section-intro {
+    color: rgba(250,246,239,0.7);
+    margin: 0 auto;
+  }
+
+  .books-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2.7rem;
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .book-card {
+    background: var(--navy-soft);
+    border: 1px solid rgba(220,192,119,0.24);
+    padding: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .book-cover {
+    width: 100%;
+    max-width: 190px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .book-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .book-card .btn {
+    width: 100%;
+    color: var(--gold-soft);
+    border-color: var(--gold-soft);
+  }
+
+  .book-card .btn:hover {
+    background: rgba(255,255,255,0.06);
+  }
+
+  @media (max-width: 700px) {
+    .book-grid {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+    }
+  }
+
+  /* SPEAKING */
+
+  .speaking {
+    background: var(--parchment);
+    padding: 5.5rem 1.5rem;
+  }
+
+  .speaking-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .speaking p {
+    color: var(--navy-soft);
+    margin: 0 auto 1.6rem;
+    max-width: 680px;
+  }
+
+  /* FINAL CTA */
+
+  .final-cta {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 5.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .final-cta-inner {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .final-cta h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2.1rem, 4vw, 3rem);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .final-cta h2 em {
+    color: var(--gold-soft);
+  }
+
+  .final-cta p {
+    color: rgba(250,246,239,0.72);
+    margin-bottom: 1.8rem;
+  }
+
+  /* FOOTER */
+
+  footer.site-footer {
+    background: var(--navy-deep);
+    color: rgba(250,246,239,0.58);
+    padding: 2.6rem 1.5rem;
+    text-align: center;
+    font-size: 0.72rem;
   }
 
   footer.site-footer a {
     color: var(--gold-soft);
     text-decoration: none;
   }
-  footer.site-footer a:hover { text-decoration: underline; }
+
+  footer.site-footer a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-brand {
+    color: var(--cream);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links {
+    margin-top: 0.7rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.3rem;
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 500px) {
+    body {
+      font-size: 18px;
+    }
+
+    .hero {
+      padding-top: 4.5rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+      max-width: 330px;
+      margin: 0 auto;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+    }
+  }
 </style>
 </head>
+
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="header-inner">
+
     <a class="brand" href="#top">STEVE LEWEY</a>
-    <nav class="primary-nav" aria-label="Primary">
+
+    <nav class="primary-nav" aria-label="Primary navigation">
       <ul>
         <li><a href="#about">About</a></li>
-        <li><a href="https://stevelewey.github.io/proverbs-kings/">Proverbs &amp; Kings</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#books">Books</a></li>
-        <li><a href="https://stevelewey.github.io/advisor/">Advisor</a></li>
+        <li><a href="https://stevelewey.github.io/proverbs-kings/">Ancient Intelligence</a></li>
+        <li><a href="https://stevelewey.github.io/advisor/">Thinking Partner</a></li>
+        <li><a href="#resources">Resources</a></li>
         <li><a href="https://stevelewey.github.io/speaking/">Speaking</a></li>
-        <li><a href="#friends">Friends of the Ministry</a></li>
+        <li><a class="nav-cta" href="https://stevelewey.github.io/proverbs-foundation-assessment/">Start Here</a></li>
       </ul>
     </nav>
+
   </div>
 </header>
 
 <main id="main">
 
-  <!-- ============ HERO ============ -->
+  <!-- =========================================================
+       HERO
+  ========================================================== -->
+
   <section class="hero" id="top">
-    <p class="eyebrow">Ancient Intelligence for Modern Life</p>
-    <h1>What are you carrying?</h1>
-    <p class="lede">
-      Wisdom for life and leadership, drawn from the book of Proverbs and
-      tested in the real work of ministry and marketplace — for the team
-      you're leading, the church you're planting, the marriage you're
-      building, or the hard season you're just trying to get through.
-    </p>
-    <p class="lede-sub">
-      For marketplace leaders&nbsp;&middot;&nbsp;church planters and shepherds&nbsp;&middot;&nbsp;
-      couples building a life together&nbsp;&middot;&nbsp;anyone carrying something heavy right now.
-    </p>
-    <div class="hero-divider"></div>
-  </section>
 
-  <!-- ============ ASSESSMENT CTA ============ -->
-  <section class="assessment-cta" id="assessment-cta">
-    <div class="section-inner">
-      <p class="eyebrow">Start Here</p>
-      <h2>Find out which of the 5 Pillars is quietly running your decisions — in 4 minutes.</h2>
-      <p class="sub">Free &middot; No account needed &middot; Your results appear instantly</p>
-      <a class="btn btn-primary" href="https://stevelewey.github.io/proverbs-foundation-assessment/">Take the Assessment</a>
+    <div class="hero-inner">
+
+      <p class="eyebrow">Ancient Intelligence · Light Based Leadership</p>
+
+      <h1>
+        Wisdom for <em>modern decisions.</em>
+      </h1>
+
+      <p class="hero-lede">
+        Steve Lewey helps leaders, business owners, professionals, and thoughtful people think clearly about important decisions, responsibilities, transitions, and relationships — using practical wisdom rooted in Proverbs.
+      </p>
+
+      <p class="hero-support">
+        Think more clearly. See what you may be missing. Decide what matters. Move forward with intention.
+      </p>
+
+      <div class="hero-divider"></div>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://stevelewey.github.io/proverbs-foundation-assessment/">
+          Take the Ancient Intelligence Audit
+        </a>
+
+        <a class="btn btn-secondary" href="https://stevelewey.github.io/advisor/">
+          Explore Thinking Partner Advisory
+        </a>
+      </div>
+
+      <p class="hero-note">
+        Free audit · Complimentary 30-minute introductory conversation available
+      </p>
+
     </div>
+
   </section>
 
-  <!-- ============ ABOUT ============ -->
+
+  <!-- =========================================================
+       START HERE
+  ========================================================== -->
+
+  <section class="start-here">
+
+    <div class="start-inner">
+
+      <p class="eyebrow eyebrow-light">Start Here</p>
+
+      <h2>
+        Sometimes the first step is simply seeing<br>
+        <em>what is shaping your decisions.</em>
+      </h2>
+
+      <p>
+        The Ancient Intelligence Audit is a practical self-assessment rooted in Proverbs. It helps you examine four foundational areas — Integrity, Intentionality, Initiative, and Environment — along with Counsel &amp; Discernment.
+      </p>
+
+      <a class="btn btn-gold" href="https://stevelewey.github.io/proverbs-foundation-assessment/">
+        Take the Free Audit
+      </a>
+
+      <p class="start-note">
+        Approximately 4 minutes · Free · Your results appear immediately
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       ABOUT
+  ========================================================== -->
+
   <section class="about" id="about">
-    <div class="section-inner about-inner">
-      <img class="about-portrait" src="steve-lewey.jpg" alt="Portrait of Steve Lewey">
+
+    <div class="about-grid">
+
+      <img
+        class="about-portrait"
+        src="steve-lewey.jpg"
+        alt="Portrait of Steve Lewey"
+      >
+
       <div class="about-text">
+
         <p class="eyebrow">About Steve</p>
+
         <p>
-          I'm Steve Lewey — marketplace chaplain, author, and a founding
-          partner with Maxwell Leadership. My training runs through a BA
-          in Mass Communications from Western Kentucky University and an
-          MA in Biblical Studies from Dallas Theological Seminary, but
-          most of what I teach was learned the harder way — in
-          boardrooms, small groups, and hard conversations.
+          I'm Steve Lewey. For more than three decades, I've returned again and again to the book of Proverbs — not simply to study it, but to ask what its wisdom means when it meets real decisions, real relationships, real work, and real responsibility.
         </p>
+
         <p>
-          I live in the Piedmont of North Carolina with my wife, who's
-          been part of this work every step of the way. These days you'll
-          find me writing, coaching leaders one-on-one, <a href="https://stevelewey.github.io/speaking/">speaking when I'm
-          invited</a>, officiating the occasional wedding, and trying (with
-          mixed success) to stay out of the weeds of admin work I was
-          never quite built for.
+          My background includes marketplace leadership, coaching, corporate chaplaincy, ministry leadership, and leadership development. I'm also a <strong>Maxwell Leadership Founding Partner</strong> and a trained facilitator with <strong>CBMC</strong>.
         </p>
+
         <p>
-          If you're carrying something heavy — a team, a marriage, a hard
-          season, a calling you can't quite name — I'd be glad to walk
-          with you for a while.
+          Today, my work centers on two things: <strong>helping people think more clearly</strong> and <strong>helping them apply enduring wisdom to the situations actually in front of them.</strong>
         </p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ FOUR PATHWAYS ============ -->
-  <section class="pathways">
+        <p>
+          That may happen through writing and teaching, through the Ancient Intelligence framework, or through a confidential conversation as a Thinking Partner.
+        </p>
 
-    <!-- I. Proverbs & Kings -->
-    <div class="pathway-card" id="assessment">
-      <span class="marker">I.</span>
-      <h2>Proverbs &amp; Kings</h2>
-      <p>
-        Two kinds of intelligence — only one has been tested. Start with
-        the free Proverbs Foundation Assessment, a short gut-check on how
-        you're actually leading right now.
-      </p>
-      <div class="card-links">
-        <a class="btn btn-primary" href="https://stevelewey.github.io/proverbs-kings/">Explore Proverbs &amp; Kings</a>
       </div>
-    </div>
 
-    <!-- II. Courses -->
-    <div class="pathway-card" id="courses">
-      <span class="marker">II.</span>
-      <h2>Courses</h2>
-      <p>
-        Ready to go deeper? Browse the full catalog — the 21-Day
-        Challenge, the AI Coaching Protocol, and the 8-week
-        self-guided course.
-      </p>
-      <div class="card-links">
-        <a class="btn btn-secondary" href="https://stevelewey.github.io/proverbs-challenge/">21-Day Proverbs Challenge</a>
-        <a class="btn btn-secondary" href="https://stevelewey.github.io/proverbs-kings-course/">Proverbs &amp; Kings Course</a>
-        <a class="btn btn-secondary" href="https://stevelewey.github.io/ai-coaching-protocol/">AI Coaching Protocol</a>
-      </div>
-    </div>
-
-    <!-- III. Books -->
-    <div class="pathway-card">
-      <span class="marker">III.</span>
-      <h2>The Books</h2>
-      <p>
-        Field-tested wisdom in print — for leaders, planters,
-        parents, and anyone carrying something heavy.
-      </p>
-      <div class="card-links">
-        <a class="btn btn-secondary" href="#books">See All Books</a>
-      </div>
-    </div>
-
-    <!-- IV. One-on-One Coaching -->
-    <div class="pathway-card" id="coaching">
-      <span class="marker">IV.</span>
-      <h2>Thinking Partner &amp; Coaching</h2>
-      <p>
-        A confidential thinking partner for leaders navigating something
-        big — one-on-one, ongoing, or a single working session.
-      </p>
-      <div class="card-links">
-        <a class="btn btn-secondary" href="https://stevelewey.github.io/advisor/">Learn About Coaching</a>
-      </div>
-    </div>
-
-    <!-- V. Friends of the Ministry -->
-    <div class="pathway-card" id="friends">
-      <span class="marker">V.</span>
-      <h2>Friends of the Ministry</h2>
-      <p>
-        A small circle who help sustain this work directly —
-        depth with a few, rather than reach for its own sake.
-      </p>
-      <div class="card-links">
-        <a class="btn btn-primary" href="https://stevelewey.github.io/friends-of-this-ministry/">Join the Circle</a>
-      </div>
     </div>
 
   </section>
 
-  <!-- ============ BOOKS ============ -->
-  <section class="books" id="books">
+
+  <!-- =========================================================
+       ANCIENT INTELLIGENCE
+  ========================================================== -->
+
+  <section class="ancient" id="ancient-intelligence">
+
     <div class="section-inner">
-      <div class="section-head">
-        <p class="eyebrow">III. The Books</p>
-        <h2>Field-Tested Wisdom in Print</h2>
+
+      <div class="ancient-header">
+
+        <p class="eyebrow">The Method</p>
+
+        <h2 class="section-title">
+          Ancient Intelligence is <em>timeless wisdom made practical.</em>
+        </h2>
+
+        <p class="section-intro">
+          The world changes quickly. Human beings still face many of the same fundamental questions: Who can I trust? How should I decide? What am I building? What am I overlooking? When should I act? Whose counsel should I seek?
+        </p>
+
       </div>
+
+      <div class="ancient-method">
+
+        <div class="method-card">
+          <div class="method-number">01 · READ</div>
+          <h3>Encounter the Wisdom</h3>
+          <p>
+            Begin with enduring wisdom, especially the practical wisdom found in Proverbs.
+          </p>
+        </div>
+
+        <div class="method-card">
+          <div class="method-number">02 · RECOGNIZE</div>
+          <h3>Identify the Principle</h3>
+          <p>
+            Look beneath the ancient words to identify the principle at work.
+          </p>
+        </div>
+
+        <div class="method-card">
+          <div class="method-number">03 · APPLY</div>
+          <h3>Bring It Into Today</h3>
+          <p>
+            Ask what that principle means for the decision, relationship, work, or season in front of you.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="framework-intro">
+
+        <p class="eyebrow">Eight Areas of Application</p>
+
+      </div>
+
+      <div class="framework-grid">
+
+        <div class="framework-card">
+          <div class="framework-label">01 · Character</div>
+          <h3>Integrity</h3>
+          <p>Living whole and bringing your stated values into alignment with your actual choices.</p>
+        </div>
+
+        <div class="framework-card">
+          <div class="framework-label">02 · Direction</div>
+          <h3>Intentionality</h3>
+          <p>Cultivating what matters rather than allowing circumstances to determine what grows.</p>
+        </div>
+
+        <div class="framework-card">
+          <div class="framework-label">03 · Action</div>
+          <h3>Initiative</h3>
+          <p>Recognizing when preparation has become procrastination and it is time to plow.</p>
+        </div>
+
+        <div class="framework-card">
+          <div class="framework-label">04 · Support</div>
+          <h3>Environment</h3>
+          <p>Building the relationships, habits, structures, and surroundings that support what you want to become.</p>
+        </div>
+
+        <div class="framework-card">
+          <div class="framework-label">05 · Wisdom</div>
+          <h3>Counsel</h3>
+          <p>Thinking with others rather than relying entirely on your own perspective.</p>
+        </div>
+
+        <div class="framework-card">
+          <div class="framework-label">06 · Perception</div>
+          <h3>Discernment</h3>
+          <p>Learning to see beneath the surface before deciding what something means.</p>
+        </div>
+
+        <div class="framework-card">
+          <div class="framework-label">07 · Influence</div>
+          <h3>Speech</h3>
+          <p>Recognizing how words build, damage, clarify, confuse, encourage, and influence.</p>
+        </div>
+
+        <div class="framework-card">
+          <div class="framework-label">08 · Perspective</div>
+          <h3>Gratitude</h3>
+          <p>Remembering what matters and developing a healthier perspective in difficult seasons.</p>
+        </div>
+
+      </div>
+
+      <div class="ancient-action">
+
+        <a class="btn btn-primary" href="https://stevelewey.github.io/proverbs-kings/">
+          Explore Ancient Intelligence
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       THINKING PARTNER
+  ========================================================== -->
+
+  <section class="advisor" id="thinking-partner">
+
+    <div class="advisor-inner">
+
+      <div class="advisor-grid">
+
+        <div class="advisor-copy">
+
+          <p class="eyebrow">Thinking Partner Advisory</p>
+
+          <h2 class="section-title">
+            You don't have to think through important decisions <em>alone.</em>
+          </h2>
+
+          <p class="lead">
+            Some decisions don't need another consultant. They need a thoughtful person who will listen carefully, ask good questions, challenge assumptions, and help you see what you may not be seeing.
+          </p>
+
+          <p>
+            Thinking Partner Advisory is a confidential space for leaders, business owners, professionals, and thoughtful people navigating an important decision, transition, responsibility, relationship, or next chapter.
+          </p>
+
+          <p>
+            I don't make the decision for you. The goal is greater clarity so you can make the decision with greater confidence and intention.
+          </p>
+
+          <a class="btn btn-primary" href="https://stevelewey.github.io/advisor/">
+            Explore Thinking Partner Advisory
+          </a>
+
+        </div>
+
+        <div class="advisor-card">
+
+          <div class="small-label">Complimentary Introduction</div>
+
+          <h3>
+            Let's see if a conversation would be useful.
+          </h3>
+
+          <div class="advisor-price">
+            <div class="price">30 min</div>
+            <span>Complimentary introductory conversation</span>
+          </div>
+
+          <p>
+            A simple conversation to understand what you're facing and determine whether Thinking Partner Advisory is a good fit.
+          </p>
+
+          <a
+            class="btn btn-gold"
+            href="https://calendly.com/steve-lewey/30min"
+            target="_blank"
+            rel="noopener"
+          >
+            Schedule a Conversation
+          </a>
+
+          <span class="minor">
+            No obligation · No pressure
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       ANCIENT INTELLIGENCE NOTES
+  ========================================================== -->
+
+  <section class="notes" id="notes">
+
+    <div class="notes-inner">
+
+      <p class="eyebrow">Ancient Intelligence Notes</p>
+
+      <h2>
+        Practical wisdom for modern decisions.
+      </h2>
+
+      <p>
+        Occasional notes from Proverbs applied to leadership, business, relationships, work, responsibility, and life. Thoughtful rather than noisy.
+      </p>
+
+      <!-- MailerLite Universal -->
+      <div id="mlb2-200044109005588408" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-200044109005588408">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+
+            <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
+
+              <div class="ml-form-embedContent">
+
+                <h4>Ancient Intelligence Notes</h4>
+
+                <p>
+                  Practical wisdom from Proverbs for modern decisions, leadership, business and life.
+                </p>
+
+              </div>
+
+              <form
+                class="ml-block-form"
+                action="https://assets.mailerlite.com/jsonp/2539447/forms/200044109005588408/subscribe"
+                data-code=""
+                method="post"
+              >
+
+                <div class="ml-form-formContent">
+
+                  <div class="ml-form-fieldRow ml-last-item">
+
+                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+
+                      <input
+                        aria-label="email"
+                        aria-required="true"
+                        type="email"
+                        class="form-control"
+                        data-inputmask=""
+                        name="fields[email]"
+                        placeholder="Email"
+                        autocomplete="email"
+                      >
+
+                    </div>
+
+                  </div>
+
+                  <div class="ml-form-fieldRow ml-field-group ml-field-name">
+
+                    <input
+                      aria-label="name"
+                      type="text"
+                      class="form-control"
+                      name="fields[name]"
+                      placeholder="Name"
+                      autocomplete="name"
+                    >
+
+                  </div>
+
+                </div>
+
+                <input type="hidden" name="ml-submit" value="1">
+
+                <div class="ml-form-embedSubmit">
+
+                  <button type="submit" class="primary">
+                    Send Me the Notes
+                  </button>
+
+                  <button disabled="disabled" style="display:none" type="button" class="loading">
+                    <div class="ml-form-embedSubmitLoad">
+                      <div class="loader"></div>
+                    </div>
+                  </button>
+
+                </div>
+
+                <input type="hidden" name="anticsrf" value="true">
+
+              </form>
+
+            </div>
+
+            <div class="ml-form-successBody row-success" style="display:none">
+
+              <div class="ml-form-successContent">
+
+                <h4>Thank you!</h4>
+
+                <p>
+                  You're on the list for Ancient Intelligence Notes.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- MailerLite styles -->
+      <style>
+        .notes .ml-form-embedContainer {
+          width: 100% !important;
+          margin: 0 auto !important;
+        }
+
+        .notes .ml-form-embedWrapper {
+          background: transparent !important;
+          border: none !important;
+          padding: 0 !important;
+        }
+
+        .notes .ml-form-embedContent {
+          display: none !important;
+        }
+
+        .notes .ml-form-embedBody {
+          padding: 0 !important;
+          background: transparent !important;
+        }
+
+        .notes .ml-form-formContent {
+          display: grid !important;
+          grid-template-columns: 1fr 1fr !important;
+          gap: 0.65rem !important;
+          margin-bottom: 0.65rem !important;
+        }
+
+        .notes .ml-field-group {
+          margin: 0 !important;
+        }
+
+        .notes .ml-form-embedBody input {
+          width: 100% !important;
+          height: 48px !important;
+          border: 1px solid rgba(27,42,74,0.22) !important;
+          background: #fff !important;
+          color: var(--ink) !important;
+          padding: 0 1rem !important;
+          font-family: 'EB Garamond', serif !important;
+          font-size: 1rem !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+        }
+
+        .notes .ml-form-embedBody input::placeholder {
+          color: #7b8190 !important;
+          opacity: 1 !important;
+        }
+
+        .notes .ml-form-embedSubmit {
+          margin: 0 !important;
+        }
+
+        .notes .ml-form-embedSubmit button.primary {
+          width: 100% !important;
+          height: 48px !important;
+          border: 1px solid var(--navy) !important;
+          background: var(--navy) !important;
+          color: var(--cream) !important;
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 0.76rem !important;
+          font-weight: 700 !important;
+          letter-spacing: 0.07em !important;
+          text-transform: uppercase !important;
+          border-radius: 0 !important;
+          cursor: pointer !important;
+        }
+
+        .notes .ml-form-embedSubmit button.primary:hover {
+          background: var(--navy-soft) !important;
+        }
+
+        @media (max-width: 560px) {
+          .notes .ml-form-formContent {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      </style>
+
+    </div>
+
+  </section>
+
+
+  <!-- MailerLite Universal script -->
+  <script>
+    function ml_webform_success_200044109005588408() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-200044109005588408 .row-success').show();
+      $('.ml-subscribe-form-200044109005588408 .row-form').hide();
+    }
+  </script>
+
+  <script
+    src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519"
+    type="text/javascript">
+  </script>
+
+  <script>
+    fetch(
+      "https://assets.mailerlite.com/jsonp/2539447/forms/200044109005588408/takel",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          "a": "2539447",
+          "f": "200044109005588408",
+          "l": "1"
+        })
+      }
+    );
+  </script>
+
+
+  <!-- =========================================================
+       LEARNING RESOURCES
+  ========================================================== -->
+
+  <section class="resources" id="resources">
+
+    <div class="section-inner">
+
+      <div class="resources-header">
+
+        <p class="eyebrow">Learning Resources</p>
+
+        <h2 class="section-title">
+          Go deeper when you're ready.
+        </h2>
+
+        <p class="section-intro">
+          Self-guided resources for those who want to spend more time working with the ideas behind Ancient Intelligence.
+        </p>
+
+      </div>
+
+      <div class="resource-grid">
+
+        <div class="resource-card">
+
+          <h3>21-Day Proverbs Challenge</h3>
+
+          <p>
+            A practical, self-guided journey through four foundational areas of Proverbs: integrity, intentionality, initiative, and environment.
+          </p>
+
+          <div class="resource-links">
+            <a href="https://stevelewey.github.io/proverbs-challenge/">
+              Learn More
+            </a>
+            <a href="https://stevelewey.gumroad.com/l/ptulxm">
+              Get the Resource
+            </a>
+          </div>
+
+        </div>
+
+        <div class="resource-card">
+
+          <h3>Proverbs &amp; Kings Course</h3>
+
+          <p>
+            The deeper self-guided resource built around the original eight frameworks that helped shape the Ancient Intelligence methodology.
+          </p>
+
+          <div class="resource-links">
+            <a href="https://stevelewey.github.io/proverbs-kings-course/">
+              Learn More
+            </a>
+            <a href="https://stevelewey.gumroad.com/l/ljouo">
+              Explore the Course
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       BOOKS
+  ========================================================== -->
+
+  <section class="books" id="books">
+
+    <div class="section-inner">
+
+      <div class="books-header">
+
+        <p class="eyebrow eyebrow-light">Books</p>
+
+        <h2 class="section-title">
+          Wisdom in <em>print.</em>
+        </h2>
+
+        <p class="section-intro">
+          Books by Steve Lewey exploring faith, community, leadership, and the realities of following God in ordinary life.
+        </p>
+
+      </div>
+
       <div class="book-grid">
 
         <div class="book-card">
-          <img class="book-cover-img" src="HoldFast.jpg" alt="Hold Fast book cover">
+
+          <img
+            class="book-cover"
+            src="HoldFast.jpg"
+            alt="Hold Fast book cover"
+          >
+
           <h3>Hold Fast</h3>
-          <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0HBGXKG4H">View on Amazon</a>
+
+          <a
+            class="btn btn-secondary"
+            href="https://www.amazon.com/dp/B0HBGXKG4H"
+            target="_blank"
+            rel="noopener"
+          >
+            View on Amazon
+          </a>
+
         </div>
 
         <div class="book-card">
-          <img class="book-cover-img" src="TheGathering.jpg" alt="The Gathering book cover">
+
+          <img
+            class="book-cover"
+            src="TheGathering.jpg"
+            alt="The Gathering book cover"
+          >
+
           <h3>The Gathering</h3>
-          <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0HC8F3TR1">View on Amazon</a>
+
+          <a
+            class="btn btn-secondary"
+            href="https://www.amazon.com/dp/B0HC8F3TR1"
+            target="_blank"
+            rel="noopener"
+          >
+            View on Amazon
+          </a>
+
         </div>
 
         <div class="book-card">
-          <img class="book-cover-img" src="FieldManualforPlantingNewTestament.png" alt="Field Manual for Planting and Multiplying New Testament Gatherings book cover">
-          <h3>Field Manual for Planting &amp; Multiplying New Testament Gatherings</h3>
-          <!-- Not yet published — swap in the Amazon KDP link once live -->
-          <span class="btn btn-secondary" aria-disabled="true" style="opacity:0.55;cursor:default;">Coming Soon</span>
-        </div>
 
-        <div class="book-card">
-          <img class="book-cover-img" src="SawdustandtheStars.jpg" alt="Sawdust and the Stars book cover">
+          <img
+            class="book-cover"
+            src="SawdustandtheStars.jpg"
+            alt="Sawdust and the Stars book cover"
+          >
+
           <h3>Sawdust and the Stars</h3>
-          <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0H957Z76Y">View on Amazon</a>
-        </div>
 
-        <div class="book-card">
-          <div class="book-cover-placeholder">Cover:<br>What the Manger Cost</div>
-          <h3>What the Manger Cost</h3>
-          <!-- Not yet published — swap in the Amazon KDP link once live -->
-          <span class="btn btn-secondary" aria-disabled="true" style="opacity:0.55;cursor:default;">Coming Soon</span>
-        </div>
+          <a
+            class="btn btn-secondary"
+            href="https://www.amazon.com/dp/B0H957Z76Y"
+            target="_blank"
+            rel="noopener"
+          >
+            View on Amazon
+          </a>
 
-        <div class="book-card">
-          <img class="book-cover-img" src="PrayersforHardDays.jpg" alt="Prayers for Hard Days book cover">
-          <h3>Prayers for Hard Days</h3>
-          <div class="card-links">
-            <a class="btn btn-secondary" href="https://www.amazon.com/dp/B0H6M8JRMC">View on Amazon</a>
-            <a class="btn btn-secondary" href="https://www.youtube.com/@PrayersForHardDays-l8s">Watch on YouTube</a>
-          </div>
         </div>
 
       </div>
+
     </div>
+
   </section>
 
-  <!-- ============ EMAIL CAPTURE ============ -->
-  <section class="email-capture">
-    <div class="section-inner">
-      <h2>Stay in the Well</h2>
-      <p>One short note, occasionally — no noise, no funnel spam.</p>
 
-      <!-- Replace this entire form with your MailerLite embed once your account is live -->
-      <form id="mailerlite-placeholder" onsubmit="return false;">
-        <label for="email-input" class="visually-hidden" style="position:absolute;left:-9999px;">Email address</label>
-        <input id="email-input" type="email" placeholder="you@example.com" required>
-        <button class="btn btn-primary" type="submit">Subscribe</button>
-      </form>
-      <p class="placeholder-note">Placeholder form — connect to MailerLite before publishing.</p>
-    </div>
-  </section>
+  <!-- =========================================================
+       SPEAKING
+  ========================================================== -->
 
-  <!-- ============ FRIENDS OF THE MINISTRY (detail) ============ -->
-  <section class="friends">
-    <div class="section-inner">
-      <p class="eyebrow">V. Friends of the Ministry</p>
-      <h2>Join a Small Circle That Sustains This Work</h2>
+  <section class="speaking" id="speaking">
+
+    <div class="speaking-inner">
+
+      <p class="eyebrow">Speaking &amp; Conversations</p>
+
+      <h2 class="section-title">
+        Practical wisdom for <em>real-world decisions.</em>
+      </h2>
+
       <p>
-        This ministry runs on depth with a few rather than reach for its
-        own sake. Friends of the Ministry give what they're able, monthly
-        or as they're moved, to help carry the work of writing, teaching,
-        and shepherding forward.
+        Steve speaks with leadership teams, business and nonprofit groups, professional gatherings, churches, ministry organizations, and other groups interested in practical wisdom, leadership, decision-making, relationships, and character.
       </p>
-      <a class="btn btn-primary" href="https://stevelewey.github.io/friends-of-this-ministry/">Become a Friend of the Ministry</a>
+
+      <p>
+        Engagements may take the form of a keynote, workshop, discussion, teaching session, or conversation.
+      </p>
+
+      <a class="btn btn-primary" href="https://stevelewey.github.io/speaking/">
+        Explore Speaking
+      </a>
+
     </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       FINAL CTA
+  ========================================================== -->
+
+  <section class="final-cta">
+
+    <div class="final-cta-inner">
+
+      <p class="eyebrow eyebrow-light">A Place to Begin</p>
+
+      <h2>
+        You don't need to have everything figured out.<br>
+        <em>You may simply need a clearer way to think.</em>
+      </h2>
+
+      <p>
+        Start with the free Ancient Intelligence Audit. If what you discover raises a question worth exploring, there's always the option of a conversation.
+      </p>
+
+      <a class="btn btn-gold" href="https://stevelewey.github.io/proverbs-foundation-assessment/">
+        Take the Free Audit
+      </a>
+
+    </div>
+
   </section>
 
 </main>
 
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+
 <footer class="site-footer">
-  <p>&copy; <span id="year"></span> Steve Lewey &middot; Light Based Leadership &middot; Piedmont, North Carolina</p>
+
+  <div class="footer-brand">
+    STEVE LEWEY
+  </div>
+
+  <p>
+    Light Based Leadership · Piedmont, North Carolina
+  </p>
+
+  <div class="footer-links">
+    <a href="https://stevelewey.github.io/proverbs-kings/">Ancient Intelligence</a>
+    <a href="https://stevelewey.github.io/advisor/">Thinking Partner</a>
+    <a href="https://stevelewey.github.io/proverbs-foundation-assessment/">Audit</a>
+    <a href="https://stevelewey.github.io/speaking/">Speaking</a>
+    <a href="mailto:Steve@stevelewey.com">Steve@stevelewey.com</a>
+  </div>
+
+  <p style="margin-top:0.8rem;">
+    &copy; <span id="year"></span> Steve Lewey. All rights reserved.
+  </p>
+
 </footer>
+
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
